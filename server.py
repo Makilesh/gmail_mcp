@@ -79,6 +79,7 @@ def _credentials_path() -> str:
             "GMAIL_CREDENTIALS_PATH is not set. Point it at the OAuth desktop "
             "client_secret.json downloaded from the Google Cloud Console."
         )
+    
     if not os.path.isfile(path):
         raise RuntimeError(f"client_secret.json not found at {path!r}")
     return path
