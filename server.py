@@ -35,7 +35,11 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-from mcp.server.fastmcp import FastMCP
+
+try:  # mcp >= 2.0 renamed FastMCP to MCPServer
+    from mcp.server.mcpserver import MCPServer as _MCPServer
+except ModuleNotFoundError:  # pragma: no cover - mcp 1.x
+    from mcp.server.fastmcp import FastMCP as _MCPServer
 
 SCOPES = [
     "https://www.googleapis.com/auth/gmail.readonly",
@@ -54,7 +58,7 @@ logging.basicConfig(
 )
 log = logging.getLogger("gmail-mcp")
 
-mcp = FastMCP("gmail")
+mcp = _MCPServer("gmail")
 
 
 # --------------------------------------------------------------------------

@@ -56,6 +56,9 @@ python -m venv .venv
 
 On macOS/Linux the interpreter is `.venv/bin/python` instead.
 
+The server works with both the 1.x and 2.x MCP SDK — it imports `MCPServer`
+(SDK 2.x) and falls back to `FastMCP` (SDK 1.x). Verified against `mcp` 2.1.1.
+
 ### 4. First run / consent
 
 Point `GMAIL_CREDENTIALS_PATH` at the file you downloaded and run the selftest:
