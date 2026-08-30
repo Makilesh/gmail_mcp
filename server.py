@@ -88,6 +88,7 @@ def _credentials_path() -> str:
 def _token_path() -> str:
     """Where the cached OAuth token lives.
 
+    
     Defaults to token.json next to client_secret.json; override with
     GMAIL_TOKEN_PATH.
     """
